@@ -15,64 +15,194 @@ body {
 
 /* HERO */
 .hero {
-  height: 100vh;
-  background: url('matrimonio ale.avif') center center no-repeat;
-  background-size: cover;
-  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top left, #f8ede0 0%, transparent 55%),
+    radial-gradient(ellipse at bottom right, #f5e6d8 0%, transparent 55%),
+    #fdfaf6;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 50px 30px;
+  gap: 22px;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 248, 244, 0.5);
-}
-
-.hero-content {
-  position: relative;
+.hero-header {
   text-align: center;
-  padding: 20px;
   z-index: 1;
 }
 
-/* Ottimizzazione mobile per hero */
-@media (max-width: 768px) {
-  .hero {
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-  }
-  
-  .overlay {
-    background: rgba(255, 248, 244, 0.6);
-  }
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #b8905a;
+  margin: 0;
 }
 
-.hero-logo {
-  max-width: 300px;
-  width: 80%;
-  height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+.hero-divider {
+  color: #c4975a;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  letter-spacing: 0.6em;
 }
 
-.hero h1 {
+.hero-footer {
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-names {
   font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  color: #7a5c58;
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: #6b4c48;
+  margin: 0;
+  letter-spacing: 0.04em;
 }
 
-.hero-subtitle {
-  font-size: 1.3rem;
-  margin-top: 10px;
+.hero-names em {
+  font-style: italic;
+  color: #c4975a;
 }
 
 .hero-date {
-  margin-top: 20px;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.82rem;
+  letter-spacing: 0.3em;
+  color: #b8905a;
+  margin-top: 6px;
+}
+
+/* === WEDDING FRAME CON IMMAGINE === */
+.wedding-frame-wrap {
+  position: relative;
+  width: 96vw;
+  max-width: 700px;
+  z-index: 2;
+}
+
+/* Contenitore video - aspect ratio 3:2 come la cornice PNG (1536x1024) */
+.wf-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(107, 76, 72, 0.2);
+}
+
+/* Video: contain per vedere tutto senza tagli */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+}
+
+/* Cornice immagine sovrapposta - mix-blend-mode rende il bianco trasparente */
+.wf-frame-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Play button SVG */
+.hero-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.4));
+}
+
+.hero-video-play svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video-play:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* Bottone fullscreen */
+.wf-fullscreen-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  transition: background 0.2s ease;
+}
+
+.wf-fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.wf-fullscreen-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 16px;
+    gap: 16px;
+  }
+
+  .wedding-frame-wrap {
+    width: 96vw;
+  }
+
+  .hero-names {
+    font-size: 1.5rem;
+  }
+
+  .hero-video-play {
+    width: 56px;
+    height: 56px;
+  }
+
+  .wf-fullscreen-btn {
+    width: 30px;
+    height: 30px;
+    bottom: 8px;
+    right: 8px;
+  }
 }
 
 /* SEZIONI */
