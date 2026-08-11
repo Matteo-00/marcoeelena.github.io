@@ -17,7 +17,7 @@
   <div class="admin-container">
     <header class="admin-header">
       <h1 class="admin-title">Conferme Matrimonio</h1>
-      <p class="admin-subtitle">Camilla & Alessio - Gestione partecipazioni</p>
+      <p class="admin-subtitle">Elena & Marco - Gestione partecipazioni</p>
       <a href="../index.html" class="btn-back">← Torna al sito</a>
     </header>
 
@@ -162,8 +162,8 @@
     // Carica dati da Supabase
     async function loadData() {
       try {
-        // Filtra per idmatrimonio = '002'
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio?select=*&idmatrimonio=eq.002`, {
+        // Filtra per idmatrimonio = '003'
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/adesioni_matrimonio?select=*&idmatrimonio=eq.003`, {
           method: 'GET',
           headers: {
             'apikey': SUPABASE_KEY,
