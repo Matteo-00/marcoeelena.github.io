@@ -86,6 +86,20 @@ body {
   z-index: 2;
 }
 
+/* Foto hero (sostituisce il video nella sezione hero) */
+.hero-photo {
+  width: 100%;
+  display: block;
+  background: transparent;
+}
+
+/* Sezione video (dopo la hero, prima di Con grande emozione) */
+.video-section {
+  padding-top: 0;
+  display: flex;
+  justify-content: center;
+}
+
 /* Contenitore video - aspect ratio 3:2 come la cornice PNG (1536x1024) */
 .wf-video-container {
   position: relative;
