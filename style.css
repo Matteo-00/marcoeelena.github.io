@@ -23,14 +23,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 50px 30px;
-  gap: 22px;
+  justify-content: flex-start;
+  padding: 10px 24px 40px;
+  gap: 4px;
 }
 
 .hero-header {
   text-align: center;
   z-index: 1;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .hero-eyebrow {
@@ -86,11 +88,105 @@ body {
   z-index: 2;
 }
 
-/* Foto hero (sostituisce il video nella sezione hero) */
+/* Wrap scritta nella hero */
+.hero-writing-wrap {
+  width: 92vw;
+  max-width: 560px;
+  z-index: 2;
+  margin-top: -70px;
+}
+
+/* Foto hero (scritta) */
 .hero-photo {
   width: 100%;
   display: block;
   background: transparent;
+}
+
+/* Foto coppia nella hero */
+.hero-couple-wrap {
+  width: 68vw;
+  max-width: 275px;
+  z-index: 3;
+  margin-top: -130px;
+  position: relative;
+}
+
+.hero-couple-photo {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(107, 76, 72, 0.18);
+  border: 2px solid #e8d8cc;
+}
+
+/* Due box eleganti cerimonia/ricevimento nella hero */
+.hero-cards {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 42px;
+}
+
+.hero-card {
+  flex: 1;
+  background: rgba(255, 252, 248, 0.85);
+  border: 1px solid #e2cfc4;
+  border-radius: 16px;
+  padding: 18px 12px 16px;
+  text-align: center;
+  box-shadow: 0 3px 18px rgba(107, 76, 72, 0.09), inset 0 1px 0 rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+}
+
+.hero-card-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #c4975a;
+  display: block;
+  margin-bottom: 9px;
+}
+
+.hero-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: #6b4c48;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.35;
+  font-style: italic;
+}
+
+.hero-card-addr {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.63rem;
+  color: #a98f7c;
+  margin: 4px 0 0;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+.hero-card-rule {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d9bfa4, transparent);
+  margin: 10px auto 8px;
+}
+
+.hero-card-time {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #b8905a;
+  margin: 0;
+  letter-spacing: 0.16em;
 }
 
 /* Sezione video (dopo la hero, prima di Con grande emozione) */
@@ -194,8 +290,32 @@ body {
 /* Mobile responsive */
 @media (max-width: 480px) {
   .hero {
-    padding: 40px 16px;
-    gap: 16px;
+    padding: 32px 16px;
+    gap: 12px;
+  }
+
+  .hero-writing-wrap {
+    width: 94vw;
+  }
+
+  .hero-couple-wrap {
+    width: 68vw;
+    max-width: 238px;
+    margin-top: -100px;
+  }
+
+  .hero-info-date {
+    font-size: 0.92rem;
+  }
+
+  .hero-cards {
+    max-width: 360px;
+    gap: 10px;
+    margin-top: 34px;
+  }
+
+  .hero-card {
+    padding: 15px 9px 14px;
   }
 
   .wedding-frame-wrap {
@@ -233,6 +353,16 @@ body {
   color: #7a5c58;
   margin-bottom: 25px;
   font-style: italic;
+}
+
+/* Nomi sposi nell'intro */
+.intro-names {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: #7a5c58;
+  margin-top: 22px;
+  font-style: italic;
+  letter-spacing: 0.04em;
 }
 
 /* FOTO CAROUSEL */
